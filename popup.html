@@ -1,0 +1,123 @@
+ <!doctype html>
+    <head>
+      <title>MOA Popup</title>
+      <meta charset="utf-8">
+    </head>
+    <script src="static/js/underscore-min.js"></script>
+    <script src="static/js/jquery-1.11.2.js"></script>
+    <script src="popup.js"></script>
+    <script src="static/js/typeahead.bundle.js"></script>
+    <script src="static/js/portal.js"></script>
+
+<body>
+<h2>Submit Entry to MOA</h2>
+<button type="reset" onclick="LoadSelectors()">Reload</button>
+<div class="panel panel-default" id="success-panel" hidden>
+    <div class="panel-heading green">
+        <h3 class="panel-title green"><strong>Success</strong></h3>
+    </div>
+    <div class="panel-body">
+        <p>
+            Entry was submitted for review: <span id="success-text"></span>
+        </p>
+    </div>
+</div>
+<div class="panel panel-default" id="error-panel" hidden>
+    <div class="panel-heading pink">
+        <h3 class="panel-title pink"><strong>Error</strong></h3>
+    </div>
+    <div class="panel-body">
+        <p>
+            There was an error processing your submission: <span id="error-text"> please fill in all fields</span>
+        </p>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>Source*</h4>
+                <input id="source-input" name="g" type="text" class="form-control" placeholder="DOI, e.g. 10.1126/science.1062538">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h4>Gene*</h4>
+                <div class="input-group">
+                    <input id="gene-input" name="g" type="text" class="form-control typeahead" placeholder="HGNC Gene Symbol">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h4>Cancer Type*</h4>
+                <select id="type-select" name="d" class="form-control">
+                    <option selected disabled hidden>Select cancer type</option>
+                    {% for disease in diseases %}
+                    <option>{{disease}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h4>Alteration Feature Class*</h4>
+                <select id="class-select" name="d" class="form-control">
+                    <option selected disabled hidden>Select feature</option>
+                    {% for at in alteration_classes %}
+                    <option>{{at}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+             <div class="col-md-4">
+                <h4>Alteration Effect*</h4>
+                <select id="effect-select" name="d" class="form-control">
+                    <option selected disabled hidden>Select effect</option>
+                    {% for e in effects %}
+                    <option>{{e}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+             <div class="col-md-4">
+                <h4>Alteration</h4>
+                <div class="input-group">
+                    <input id="alteration-input" name="a" type="text" placeholder="Specific Alteration, e.g. L702H ">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Predictive Implication Level</h4>
+                <select id="implication-select" name="p" class="form-control">
+                    <option selected disabled hidden>Select predictive implication level</option>
+                    {% for pred_impl in pred_impls %}
+                    <option>{{pred_impl}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <h4>Therapy</h4>
+                <select id="therapy-select" name="t" class="form-control">
+                    <option selected disabled hidden>Select therapy</option>
+                    {% for therapy_name in therapy_names %}
+                    <option>{{therapy_name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <h4>Email Address*</h4>
+                <input id="email-input" name="e" type="text" class="form-control" placeholder="">
+                <p>We may contact you to ask you about your experience with this portal.</p>
+            </div>
+        </div>
+        <div>
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-default" id="btn-sub" style="float:right; margin-top: 10px;">Submit</button>
+            </span>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
