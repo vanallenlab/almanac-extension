@@ -3,7 +3,6 @@
 	"manifest_version": 2,
 	"version": "1.0",
 	"description": "Submit Molecular Oncology Almanac assertions from Chrome",
-	"default_locale": "en",
 	"browser_action": {
 		"default_icon": {
 			"16": "images/treeitem-webpage-gray.png",
@@ -48,12 +47,10 @@
 			"zotero/connectorTypeSchemaData.js",
 			"zotero/utilities.js",
 			"utilities.js",
-			"zotero-google-docs-integration/api.js",
 			"messages.js",
 			"messaging.js",
 			"webRequestIntercept.js",
 			"contentTypeHandler.js",
-			"firefoxPDF.js",
 			"background.js",
 			"popup.js",
 			"static/js/jquery-1.11.2.js"
@@ -103,11 +100,6 @@
 			"api.js",
 			"inject/inject.js",
 			"static/js/jquery-1.11.2.js"]
-		},
-		{
-			"matches": ["https://docs.google.com/*"],
-			"run_at": "document_start",
-			"js": ["zotero-google-docs-integration/kixAddZoteroMenu.js", "zotero-google-docs-integration/client.js"]
 		}
 	],
 	"web_accessible_resources": [
