@@ -79,7 +79,7 @@ $('#btn-sub').click(function () {
   var email = email_input.value;
   $.ajax({
     type: "POST",
-    url: "http://localhost:5000/submit",
+    url: "http://localhost:5000/api/new_assertion",
     data: {
       'therapy': therapy,
       'type': type,
@@ -112,7 +112,7 @@ $('#btn-sub').click(function () {
     error: function (response, textStatus, errorThrown) {
         console.log(response, textStatus, errorThrown);
       $('#error-panel').show();
-      $('#error-text').html(JSON.parse(response.responseText));
+      $('#error-text').html(response.responseJSON.message);
       $('#success-panel').hide();
     }
   });
