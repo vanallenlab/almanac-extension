@@ -53,7 +53,8 @@
 			"contentTypeHandler.js",
 			"background.js",
 			"popup.js",
-			"static/js/jquery-1.11.2.js"
+			"static/js/jquery-1.11.2.js",
+			"static/js/typeahead.bundle.js"
 		]
 	},
 	"content_scripts": [{

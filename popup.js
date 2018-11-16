@@ -5,8 +5,6 @@ var all_therapies = new Set();
 var all_effects = new Set();
 var all_alterations = new Set();
 var all_implications = new Set();
-var typeahead_genes = all_genes;
-
 
 // GET MOA JSON and populate selectors
 $(document).ready(function() {
@@ -15,12 +13,11 @@ $(document).ready(function() {
   var class_selector = $('#class-select');
   var therapy_selector = $('#therapy-select');
   var effect_selector = $('#effect-select');
-  // var alteration_selector = $('#alteration-input');
   var implication_selector = $('#implication-select');
 
   // cleaner with .map ?
 
-  $.getJSON('api/assertions.json', function(data) {
+  $.getJSON("http://localhost:5000/api/assertions", function(data) {
           $.each(data, function (key, entry) {
               all_types.add(entry['disease']);
               all_therapies.add(entry['therapy_name']);
@@ -31,16 +28,34 @@ $(document).ready(function() {
           populateSelector(implication_selector, all_implications);
   });
 
-  $.getJSON('api/alterations.json', function(data) {
+  $.getJSON('http://localhost:5000/api/alterations', function(data) {
       $.each(data, function (key, entry) {
           all_genes.add(entry['gene_name']);
           all_classes.add(entry['feature']);
           all_effects.add(entry['alt_type']);
-          // all_alterations.add(entry['alt']);
       });
       populateSelector(class_selector, all_classes);
       populateSelector(effect_selector, all_effects);
-      // populateSelector(alteration_selector, all_alterations)
+
+      var typeahead_genes = Array.from(all_genes).sort();
+
+      if ($('.typeahead')) {
+        $('.typeahead').typeahead({
+                hint: true,
+                highlight: true,
+                minLength: 1
+            },
+            {
+                name: 'typeahead_genes',
+                source: substring_matcher(typeahead_genes)
+            });
+    }
+
+    $('#gene-input').bind('typeahead:select', function (ev, suggestion) {
+        $('#gene-input').value = suggestion;
+        this.form.submit();
+    });
+
   });
 
   function populateSelector(selector, set_of_all) {
@@ -52,6 +67,39 @@ $(document).ready(function() {
           }
       })
   }
+
+  // TO DO: populate gene list selectors from HUGO
+
+
+    //copy from portal.js
+    var substring_matcher = function (strs) {
+        return function findMatches(q, cb) {
+            var matches, substringRegex;
+
+            matches = [];
+            substrRegex = new RegExp(q, 'i');
+            $.each(strs, function (i, str) {
+                if (substrRegex.test(str)) {
+                    matches.push(str);
+                }
+            });
+
+            cb(matches);
+        };
+    };
+
+
+
+    $(document).ready(function () {
+        if ($('.results-table').DataTable) {
+            $('.results-table').DataTable({
+                ordering: true,
+                paging: true,
+                searching: false
+            });
+        }
+    });
+
 
 
 
