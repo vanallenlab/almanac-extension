@@ -68,8 +68,6 @@ $(document).ready(function() {
       })
   }
 
-  // TO DO: populate gene list selectors from HUGO
-
 
     //copy from portal.js
     var substring_matcher = function (strs) {
@@ -83,11 +81,9 @@ $(document).ready(function() {
                     matches.push(str);
                 }
             });
-
             cb(matches);
         };
     };
-
 
 
     $(document).ready(function () {
