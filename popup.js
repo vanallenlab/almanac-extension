@@ -92,7 +92,6 @@ $('#btn-sub').click(function () {
       'email': encodeURIComponent(email)
     },
     dataType: 'json',
-    // contentType: "application/json",
     crossDomain: true,
     success: function (response) {
         console.log(response);
