@@ -91,13 +91,12 @@ $('#btn-sub').click(function () {
       'alteration': alteration,
       'email': encodeURIComponent(email)
     },
-    //dataType: 'json',
-    //contentType: "application/json",
+    dataType: 'json',
     crossDomain: true,
     success: function (response) {
         console.log(response);
       $('#success-panel').show();
-      dict = JSON.parse(JSON.parse(response).message);
+      dict = JSON.parse(response.message);
       $('#success-text').html("<b></br>Email: " + decodeURIComponent(dict.email) +
                               "</br>Therapy: " + dict.therapy +
                               "</br> Implication: " + dict.implication +
