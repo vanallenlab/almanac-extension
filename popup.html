@@ -17,24 +17,24 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-md-4">
-                <h5>Submit Entry to MOA</h5>
+                <h4>Submit Entry to MOA</h4>
             </div>
         </div>
         <div class="row">
             <div class="col-md-8">
-                <h6>Source*</h6>
+                <h5>Source*</h5>
                 <input id="source-input" name="g" type="text" class="form-control" placeholder="DOI, e.g. 10.1126/science.1062538">
             </div>
         </div>
         <div class="row">
             <div class="col-md-4">
-                <h6>Gene*</h6>
+                <h5>Gene*</h5>
                 <div class="input-group">
                     <input id="gene-input" name="g" type="text" class="form-control typeahead" placeholder="HGNC Gene Symbol">
                 </div>
             </div>
             <div class="col-md-4">
-                <h6>Cancer Type*</h6>
+                <h5>Cancer Type*</h5>
                 <select id="type-select" name="d" class="form-control">
                     <option selected disabled hidden>Select cancer type</option>
                 </select>
@@ -42,19 +42,19 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <h6>Alteration Feature Class*</h6>
+                <h5>Alteration Feature Class*</h5>
                 <select id="class-select" name="d" class="form-control">
                     <option selected disabled hidden>Select feature</option>
                 </select>
             </div>
              <div class="col-md-4">
-                <h6>Alteration Effect*</h6>
+                <h5>Alteration Effect*</h5>
                 <select id="effect-select" name="d" class="form-control">
                     <option selected disabled hidden>Select effect</option>
                 </select>
             </div>
              <div class="col-md-4">
-                <h6>Alteration</h6>
+                <h5>Alteration</h5>
                 <div class="input-group">
                     <input id="alteration-input" name="a" type="text" placeholder="Specific Alteration, e.g. L702H ">
                 </div>
@@ -62,14 +62,14 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <h6>Predictive Implication Level</h6>
+                <h5>Predictive Implication Level</h5>
                 <select id="implication-select" name="p" class="form-control">
                     <option selected disabled hidden>Select predictive implication level</option>
                 </select>
             </div>
 
             <div class="col-md-6">
-                <h6>Therapy</h6>
+                <h5>Therapy</h5>
                 <select id="therapy-select" name="t" class="form-control">
                     <option selected disabled hidden>Select therapy</option>
                 </select>
@@ -77,15 +77,10 @@
         </div>
         <div class="row">
             <div class="col-md-8">
-                <h6>Email Address*</h6>
+                <h5>Email Address*</h5>
                 <input id="email-input" name="e" type="text" class="form-control" placeholder="">
                 <p>We may contact you to ask you about your experience with MOA.</p>
             </div>
-        </div>
-        <div>
-            <span class="input-group-btn">
-                <button type="submit" class="btn btn-default" id="btn-sub" style="float:right; margin-top: 10px;">Submit</button>
-            </span>
         </div>
     </div>
 </div>
@@ -109,6 +104,12 @@
         </p>
     </div>
 </div>
+<div class ="panel panel-default">
+    <span class="input-group-btn">
+        <button type="submit" class="btn btn-default" id="btn-sub" style="float:right; margin-top: 10px;">Submit</button>
+    </span>
+</div>
+
 
 </body>
 </html>
