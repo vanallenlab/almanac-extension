@@ -97,8 +97,6 @@ $(document).ready(function() {
     });
 
 
-
-
 $('#btn-sub').click(function () {
   // Selectors
   var implication_select = $('#implication-select')[0];
