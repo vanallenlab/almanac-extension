@@ -97,7 +97,7 @@ $('#btn-sub').click(function () {
     success: function (response) {
         console.log(response);
       $('#success-panel').show();
-      dict = JSON.parse(JSON.parse(response).message);
+      dict = JSON.parse(response.message);
       $('#success-text').html("<b></br>Email: " + decodeURIComponent(dict.email) +
                               "</br>Therapy: " + dict.therapy +
                               "</br> Implication: " + dict.implication +
@@ -112,7 +112,7 @@ $('#btn-sub').click(function () {
     error: function (response, textStatus, errorThrown) {
         console.log(response, textStatus, errorThrown);
       $('#error-panel').show();
-      $('#error-text').html(JSON.parse(response.responseText));
+      $('#error-text').html(response.responseJSON.message);
       $('#success-panel').hide();
     }
   });
