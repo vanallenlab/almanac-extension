@@ -121,7 +121,7 @@ $('#btn-sub').click(function () {
   var email = email_input.value;
   $.ajax({
     type: "POST",
-    url: "http://localhost:5000/api/new_assertion",
+    url: "http://localhost:5000/submit",
     data: {
       'therapy': therapy,
       'type': type,
