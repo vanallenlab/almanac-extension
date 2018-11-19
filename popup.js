@@ -17,7 +17,7 @@ $(document).ready(function() {
 
   // cleaner with .map ?
 
-  $.getJSON("http://localhost:5000/api/assertions", function(data) {
+  $.getJSON("https://moalmanac.org/api/assertions", function(data) {
           $.each(data, function (key, entry) {
               all_types.add(entry['disease']);
               all_therapies.add(entry['therapy_name']);
@@ -28,7 +28,7 @@ $(document).ready(function() {
           populateSelector(implication_selector, all_implications);
   });
 
-  $.getJSON('http://localhost:5000/api/alterations', function(data) {
+  $.getJSON('https://moalmanac.org/api/alterations', function(data) {
       $.each(data, function (key, entry) {
           all_genes.add(entry['gene_name']);
           all_classes.add(entry['feature']);
@@ -121,7 +121,7 @@ $('#btn-sub').click(function () {
   var email = email_input.value;
   $.ajax({
     type: "POST",
-    url: "http://localhost:5000/submit",
+    url: "https://moalmanac.org/submit",
     data: {
       'therapy': therapy,
       'type': type,
