@@ -113,10 +113,7 @@
 	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
 	"homepage_url": "https://moalmanac.org/",
 	"icons": {
-		"16": "Icon-16.png",
-		"48": "Icon-48.png",
-		"96": "Icon-96.png",
-		"128": "Icon-128.png"
+		"48": "cs_horz.png"
 	},
 	"options_ui": {
 		"page": "preferences/preferences.html",

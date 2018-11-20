@@ -572,11 +572,11 @@ Zotero.Connector_Browser = new function() {
 		Zotero.Connector.checkIsOnline().then(function(isOnline) {
 			var icon, title;
 			if (isOnline) {
-				icon = "images/zotero-new-z-16px.png";
-				title = "Zotero is Online";
+				icon = "cs_horz.png";
+				title = "Add assertion";
 			} else {
-				icon = "images/zotero-z-16px-offline.png";
-				title = "Zotero is Offline";
+				icon = "cd_horz.png";
+				title = "Add assertion";
 			}
 			browser.browserAction.setIcon({
 				tabId:tabID,
