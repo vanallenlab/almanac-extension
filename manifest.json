@@ -6,9 +6,10 @@
     "default_locale": "en",
 	"browser_action": {
 		"default_icon": {
-			"16": "images/treeitem-webpage-gray.png",
-			"32": "images/treeitem-webpage-gray@2x.png",
-			"48": "images/treeitem-webpage-gray@48px.png"
+			"16": "cs_horz_16.png",
+			"32": "cs_horz_32.png",
+			"48": "cs_horz_48.png",
+			"128": "cs_horz_128.png"
 		},
 		"default_title": "Submit assertion for review",
 		"default_popup": "popup.html"
