@@ -15,8 +15,8 @@
 		"default_title": "Submit assertion for review",
 		"default_popup": "popup.html"
 	},
-	"permissions": ["http://*/*", "https://*/*", "tabs", "contextMenus", "cookies", 
-		"webRequest", "webRequestBlocking", "webNavigation", "storage", "https://moalmanac.org/", "http://moalmanac.org/"],
+	"permissions": ["https://moalmanac.org/*", "http://moalmanac.org/", "tabs", "contextMenus", "cookies",
+		"webRequest", "webRequestBlocking", "webNavigation", "storage", "http://moalmanac.org/*"],
 	"optional_permissions": ["management"],
 	"background": {
 		"scripts": [
