@@ -2,7 +2,7 @@
 	"name": "Molecular Oncology Almanac Connector",
     "short_name": "MOA Connector",
 	"manifest_version": 2,
-	"version": "1.02",
+	"version": "1.03",
 	"description": "Submit alteration-action relationships to the Molecular Oncology Almanac from Chrome",
     "default_locale": "en",
 	"browser_action": {
@@ -70,7 +70,7 @@
 	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
 	"homepage_url": "https://moalmanac.org/",
 	"icons": {
-		"48": "cs_horz.png"
+		"48": "cs_horz_48.png"
 	},
 	"options_ui": {
 		"page": "preferences/preferences.html",

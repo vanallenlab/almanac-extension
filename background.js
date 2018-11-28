@@ -572,10 +572,10 @@ Zotero.Connector_Browser = new function() {
 		Zotero.Connector.checkIsOnline().then(function(isOnline) {
 			var icon, title;
 			if (isOnline) {
-				icon = "cs_horz.png";
+				icon = "cs_horz_128.png";
 				title = "Add assertion";
 			} else {
-				icon = "cd_horz.png";
+				icon = "cs_horz_128.png";
 				title = "Add assertion";
 			}
 			browser.browserAction.setIcon({
