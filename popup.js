@@ -127,7 +127,7 @@ $('#btn-sub').click(function () {
       'type': type,
       'implication': implication,
       'source': source,
-      'gene': encodeURIComponent(gene),
+      'gene': (encodeURIComponent(gene) || 'None'),
       'effect': effect,
       'class': alt_class,
       'alteration': alteration,
