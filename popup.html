@@ -3,13 +3,18 @@
       <title>MOA Popup</title>
       <meta charset="utf-8">
     </head>
-    <script src="static/js/underscore-min.js"></script>
     <script src="static/js/jquery-1.11.2.js"></script>
-    <script src="popup.js"></script>
+    <script src="static/js/select2.full.min.js"></script>
+    <script src="static/js/portal-init-datatable.js"></script>
+    <script src="static/js/underscore-min.js"></script>
+    <script src="portal-json.js"></script>
+    <script src="portal-add.js"></script>
     <script src="static/js/typeahead.bundle.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
     <link href="static/css/bootstrap.min.css" rel="stylesheet">
     <link href="static/css/target_web.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="static/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/select2-bootstrap.min.css">
 
 <body>
 <div class="panel panel-default">
@@ -43,6 +48,7 @@
                 <select id="type-select" name="d" class="form-control">
                     <option selected disabled hidden>Select cancer type</option>
                 </select>
+
             </div>
         </div>
         <div class="row">
@@ -107,6 +113,72 @@
     <span class="input-group-btn">
         <button type="submit" class="btn btn-default" id="btn-sub" style="float:right; margin-top: 10px;">Submit</button>
     </span>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Feature Type*</h3>
+                <p>Select the feature asserted in the source:</p>
+                <select id="feature-definition-input" name="feature-def">
+                    <option><!-- empty option required for placeholder --></option>
+                </select>
+            </div>
+        </div>
+        {%  for feature_definition in feature_definitions %}
+        <div id="feature-{{ feature_definition.feature_def_id }}-row" class="row add-feature-row">
+            {%  for attribute_definition in feature_definition.attribute_definitions %}
+            <div class="col-md-3">
+                <h3>{{ attribute_definition.readable_name }}</h3>
+                <select id="{{ feature_definition.feature_def_id }}-{{ attribute_definition.attribute_def_id }}-input"
+                        {% if attribute_definition.type == 'gene' %}
+                        class="gene-select2 attribute-select2"
+                        {%  else %}
+                        class="nongene-select2 attribute-select2"
+                        {%  endif %}
+                        data-feature-def-id="{{ feature_definition.feature_def_id }}"
+                        data-attribute-def-id="{{ attribute_definition.attribute_def_id }}"
+                        name="{{ feature_definition.name }}-{{ attribute_definition.name }}">
+                    <option><!-- empty option required for placeholder --></option>
+                </select>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Predictive Implication Level</h3>
+                <p>Select a predictive implication level</p>
+                <select id="implication-select" name="p" class="form-control">
+                    <option><!-- empty option required for placeholder --></option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <h3>Therapy</h3>
+                <p>Select or enter a therapy:</p>
+                <select id="therapy-select" name="t" class="form-control">
+                    <option><!-- empty option required for placeholder --></option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <h3>Email Address*</h3>
+                <p>We may contact you to ask you about your experience with this portal.</p>
+                <input id="email-input" name="e" type="text" class="form-control" placeholder="">
+            </div>
+        </div>
+        <div>
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-default" id="btn-sub" style="float:right; margin-top: 10px;">Submit</button>
+            </span>
+        </div>
+    </div>
 </div>
 
 
