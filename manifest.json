@@ -2,7 +2,7 @@
 	"name": "Molecular Oncology Almanac Connector",
     "short_name": "MOA Connector",
 	"manifest_version": 2,
-	"version": "1.04",
+	"version": "1.05",
 	"description": "Submit alteration-action relationships to the Molecular Oncology Almanac from Chrome",
     "default_locale": "en",
 	"browser_action": {
@@ -15,9 +15,7 @@
 		"default_title": "Submit assertion for review",
 		"default_popup": "popup.html"
 	},
-	"permissions": ["https://moalmanac.org/*", "tabs", "contextMenus", "cookies",
-		"webRequest", "webRequestBlocking", "webNavigation", "storage"],
-	"optional_permissions": ["management"],
+	"permissions": ["https://moalmanac.org/*"],
 	"background": {
 		"scripts": [
 			"popup.js",
@@ -26,17 +24,10 @@
 		]
 	},
 
-	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+	"content_security_policy": "script-src 'self'; object-src 'self'",
 	"homepage_url": "https://moalmanac.org/",
 	"icons": {
 		"48": "cs_horz_48.png"
-	},
-	"commands": {
-		"_execute_browser_action": {
-			"suggested_key": {
-				"default": "Ctrl+Shift+S"
-			}
-		}
 	},
 	"minimum_chrome_version": "55"
 }

@@ -121,7 +121,8 @@ $('#btn-sub').click(function () {
   var email = email_input.value;
   $.ajax({
     type: "POST",
-    url: "https://moalmanac.org/submit",
+    // url: "https://moalmanac.org/submit", //real site,
+    url: "http://127.0.0.1:5000/submit",
     data: {
       'therapy': therapy,
       'type': type,
