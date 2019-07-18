@@ -1,9 +1,10 @@
 const API_ENDPOINT_URLS = {
-    'genes': 'api/genes',
-    'diseases': 'api/diseases',
-    'predictive_implications': 'api/predictive_implications',
-    'therapies': 'api/therapies',
-    'feature_definitions': 'api/feature_definitions'
+    'genes': 'https://moalmanac.org/api/genes',
+    'diseases': 'https://moalmanac.org/api/diseases',
+    //'predictive_implications': 'https://moalmanac.org/api/predictive_implications',
+    'predictive_implications': 'http://127.0.0.1:5000/api/predictive_implications',
+    'therapies': 'https://moalmanac.org/api/therapies',
+    'feature_definitions': 'https://moalmanac.org/api/feature_definitions'
 }
 
 // load data objects from remote JSON

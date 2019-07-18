@@ -1,5 +1,6 @@
 // assumes portal-json.js has been included first
 
+
 function initSelect2Field(selector, data, tags=false, placeholder=null) {
     $(selector).select2({
         theme: 'bootstrap',
@@ -46,6 +47,7 @@ getSearchSet('feature_definitions',
     }
 );
 
+
 $.each($('.nongene-select2'), function(index, element) {
     let feature_def_id = element.dataset.featureDefId;
     let attribute_def_id = element.dataset.attributeDefId;
@@ -58,7 +60,38 @@ $.each($('.nongene-select2'), function(index, element) {
         });
 });
 
+let response_options = {
+    "results": [
+        {
+            "id": 1,
+            "text": 'Sensitivity'
+        },
+        {
+            "id": 2,
+            "text": 'Resistance'
+        },
+        {
+            "id": 3,
+            "text": 'Good prognosis'
+        },
+        {
+            "id": 4,
+            "text": 'Poor prognosis'
+        },
+        {
+            "id": 5,
+            "text": 'Not sensitive'
+        }
+     ]};
+
 $(document).ready(function() {
+
+
+    initSelect2Field('#response-select', response_options, false, 'Select a response');
+
+
+    $('.js-example-basic-single').select2();
+
     $('#feature-definition-input').change(function() {
         $('.add-feature-row').hide();
         $('.active-attribute').removeClass('active-attribute');
@@ -85,11 +118,14 @@ $(document).ready(function() {
 
         $.ajax({
             type: "POST",
-            url: '/submit',
+            //url: "https://moalmanac.org/submit", //real site,
+            url: "http://127.0.0.1:5000/submit",
             data: submission_values,
+            dataType: 'json',
+            crossDomain: true,
             success: function (response) {
                 $('#success-panel').show();
-                let dict = JSON.parse(JSON.parse(response).message);
+                let dict = JSON.parse(response.message);
                 $('#success-text').html("<b></br>Email: " + decodeURIComponent(dict.email) +
                     "</br>Therapy: " + dict.therapy +
                     "</br> Implication: " + dict.implication +
@@ -105,4 +141,5 @@ $(document).ready(function() {
             }
         });
     });
+
 });
