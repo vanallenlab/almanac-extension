@@ -60,37 +60,8 @@ $.each($('.nongene-select2'), function(index, element) {
         });
 });
 
-let response_options = {
-    "results": [
-        {
-            "id": 1,
-            "text": 'Sensitivity'
-        },
-        {
-            "id": 2,
-            "text": 'Resistance'
-        },
-        {
-            "id": 3,
-            "text": 'Good prognosis'
-        },
-        {
-            "id": 4,
-            "text": 'Poor prognosis'
-        },
-        {
-            "id": 5,
-            "text": 'Not sensitive'
-        }
-     ]};
 
 $(document).ready(function() {
-
-
-    initSelect2Field('#response-select', response_options, false, 'Select a response');
-
-
-    $('.js-example-basic-single').select2();
 
     $('#feature-definition-input').change(function() {
         $('.add-feature-row').hide();
