@@ -89,8 +89,8 @@ $(document).ready(function() {
 
         $.ajax({
             type: "POST",
-            //url: "https://moalmanac.org/submit", //real site,
-            url: "http://127.0.0.1:5000/submit",
+            // url: "https://moalmanac.org/submit", //real site
+            url: "http://127.0.0.1:5000/submit", //for testing
             data: submission_values,
             dataType: 'json',
             crossDomain: true,
