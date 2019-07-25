@@ -2,7 +2,7 @@
 	"name": "Molecular Oncology Almanac Connector",
     "short_name": "MOA Connector",
 	"manifest_version": 2,
-	"version": "1.03",
+	"version": "2.00",
 	"description": "Submit alteration-action relationships to the Molecular Oncology Almanac from Chrome",
     "default_locale": "en",
 	"browser_action": {
@@ -15,73 +15,21 @@
 		"default_title": "Submit assertion for review",
 		"default_popup": "popup.html"
 	},
-	"permissions": ["https://moalmanac.org/*", "http://moalmanac.org/", "tabs", "contextMenus", "cookies",
-		"webRequest", "webRequestBlocking", "webNavigation", "storage", "http://moalmanac.org/*"],
-	"optional_permissions": ["management"],
+	"permissions": ["https://moalmanac.org/*"],
 	"background": {
 		"scripts": [
-			"browser-polyfill.js",
-			"node_modules.js",
-			"zotero_config.js",
-			"zotero.js",
-			"i18n.js",
-			"promise.js",
-			"prefs.js",
-			"api.js",
-			"http.js",
-			"oauthsimple.js",
-			"proxy.js",
-			"connector.js",
-			"cachedTypes.js",
-			"zotero/date.js",
-			"zotero/debug.js",
-			"errors_webkit.js",
-			"zotero/xregexp/xregexp.js",
-			"zotero/xregexp/addons/build.js",
-			"zotero/xregexp/addons/matchrecursive.js",
-			"zotero/xregexp/addons/unicode/unicode-base.js",
-			"zotero/xregexp/addons/unicode/unicode-categories.js",
-			"zotero/xregexp/addons/unicode/unicode-zotero.js",
-			"zotero/openurl.js",
-			"repo.js",
-			"zotero/translation/tlds.js",
-			"zotero/translation/translator.js",
-			"translators.js",
-			"zotero/connectorTypeSchemaData.js",
-			"zotero/utilities.js",
-			"utilities.js",
-			"messages.js",
-			"messaging.js",
-			"webRequestIntercept.js",
-			"contentTypeHandler.js",
-			"background.js",
-			"popup.js",
 			"static/js/jquery-1.11.2.js",
-			"static/js/typeahead.bundle.js"
+			"static/js/select2.full.min.js",
+			"static/js/portal-init-datatable.js",
+			"portal-json.js",
+			"portal-add.js"
 		]
 	},
 
-	"web_accessible_resources": [
-		"images/*",
-		"progressWindow/progressWindow.html",
-		"modalPrompt/modalPrompt.html",
-		"test/data/journalArticle-single.html"
-	],
-	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+	"content_security_policy": "script-src 'self'; object-src 'self'",
 	"homepage_url": "https://moalmanac.org/",
 	"icons": {
 		"48": "cs_horz_48.png"
-	},
-	"options_ui": {
-		"page": "preferences/preferences.html",
-		"open_in_tab": true
-	},
-	"commands": {
-		"_execute_browser_action": {
-			"suggested_key": {
-				"default": "Ctrl+Shift+S"
-			}
-		}
 	},
 	"minimum_chrome_version": "55"
 }

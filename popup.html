@@ -3,13 +3,18 @@
       <title>MOA Popup</title>
       <meta charset="utf-8">
     </head>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/select2.full.min.js"></script>
+    <!--<script src="static/js/portal-init-datatable.js"></script>-->
     <script src="static/js/underscore-min.js"></script>
-    <script src="static/js/jquery-1.11.2.js"></script>
-    <script src="popup.js"></script>
-    <script src="static/js/typeahead.bundle.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
+    <script src="portal-json.js"></script>
+    <script src="portal-add.js"></script>
+
     <link href="static/css/bootstrap.min.css" rel="stylesheet">
     <link href="static/css/target_web.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="static/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/select2-bootstrap.min.css">
 
 <body>
 <div class="panel panel-default">
@@ -20,24 +25,20 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-4">
                 <h5>Source*</h5>
                 <input id="source-input" name="g" type="text" class="form-control" placeholder="DOI, e.g. 10.1126/science.1062538">
             </div>
         </div>
         <div class="row">
             <div class="col-md-4">
-                <h5>Alteration Feature Class*</h5>
-                <select id="class-select" name="d" class="form-control">
+                <h5>Feature Type*</h5>
+                <select id="feature-definition-input" name="feature-def" class="form-control">
                     <option selected disabled hidden>Select feature</option>
                 </select>
             </div>
-            <div class="col-md-4">
-                <h5>Gene</h5>
-                <div class="input-group">
-                    <input id="gene-input" name="g" type="text" class="form-control typeahead" placeholder="HGNC Gene Symbol">
-                </div>
-            </div>
+        </div>
+        <div class="row">
             <div class="col-md-4">
                 <h5>Cancer Type*</h5>
                 <select id="type-select" name="d" class="form-control">
@@ -46,28 +47,14 @@
             </div>
         </div>
         <div class="row">
-             <div class="col-md-4">
-                <h5>Alteration Effect*</h5>
-                <select id="effect-select" name="d" class="form-control">
-                    <option selected disabled hidden>Select effect</option>
-                </select>
-            </div>
-             <div class="col-md-4">
-                <h5>Alteration</h5>
-                <div class="input-group">
-                    <input id="alteration-input" name="a" type="text" placeholder="e.g. L702H ">
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <h5>Predictive Implication Level</h5>
+            <div class="col-md-4">
+                <h5>Predictive Implication Level*</h5>
                 <select id="implication-select" name="p" class="form-control">
                     <option selected disabled hidden>Select predictive implication level</option>
                 </select>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <h5>Therapy</h5>
                 <select id="therapy-select" name="t" class="form-control">
                     <option selected disabled hidden>Select therapy</option>
@@ -75,40 +62,40 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-4">
                 <h5>Email Address*</h5>
                 <input id="email-input" name="e" type="text" class="form-control" placeholder="">
                 <p>We may contact you to ask you about your experience with MOA.</p>
             </div>
         </div>
     </div>
-</div>
-<div class="panel panel-default" id="success-panel" hidden>
-    <div class="panel-heading green">
-        <h3 class="panel-title green"><strong>Success</strong></h3>
+    <div class="panel panel-default" id="success-panel" hidden>
+        <div class="panel-heading green">
+            <h3 class="panel-title green"><strong>Success</strong></h3>
+        </div>
+        <div class="panel-body">
+            <p>
+                Entry was submitted for review: <span id="success-text"></span>
+            </p>
+        </div>
     </div>
-    <div class="panel-body">
-        <p>
-            Entry was submitted for review: <span id="success-text"></span>
-        </p>
+    <div class="panel panel-default" id="error-panel" hidden>
+        <div class="panel-heading pink">
+            <h3 class="panel-title pink"><strong>Error</strong></h3>
+        </div>
+        <div class="panel-body">
+            <p>
+                There was an error processing your submission: <span id="error-text"> please fill in all fields</span>
+            </p>
+        </div>
+    </div>
+    <div class ="row">
+        <div class="col-md-4">
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-default" id="btn-sub" style="float:right;">Submit</button>
+            </span>
+        </div>
     </div>
 </div>
-<div class="panel panel-default" id="error-panel" hidden>
-    <div class="panel-heading pink">
-        <h3 class="panel-title pink"><strong>Error</strong></h3>
-    </div>
-    <div class="panel-body">
-        <p>
-            There was an error processing your submission: <span id="error-text"> please fill in all fields</span>
-        </p>
-    </div>
-</div>
-<div class ="panel panel-default">
-    <span class="input-group-btn">
-        <button type="submit" class="btn btn-default" id="btn-sub" style="float:right; margin-top: 10px;">Submit</button>
-    </span>
-</div>
-
-
 </body>
 </html>
